@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ulang Tahun Nada</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+      body {
+        background-image: url('images/back.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+        font-family: 'Roboto Condensed', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px;
+        text-align: center;
+      }
+
+      .login-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 40px;
+        text-align: center;
+        border-radius: 4px;
+      }
+
+      .logo {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        color: #e50914;
+      }
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .login-input {
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+      }
+
+      .login-button {
+        padding: 15px;
+        background-color: #e50914;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .login-error {
+        color: #ff0000;
+        margin-top: 10px;
+      }
+
+      .header {
+        padding: 20px;
+        background-color: #141414;
+        text-align: center;
+      }
+
+      .logo {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        color: #e50914;
+        margin: 0;
+      }
+
+      .container-main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+      }
+
+      .photo-placeholder {
+        position: relative;
+        width: 100%;
+        padding-bottom: 150%;
+        background-color: #333;
+        overflow: hidden;
+      }
+
+      .photo-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .container-main {
+        display: none;
+      }
+
+      /* Responsiveness for iPhone 11 */
+      @media only screen and (max-width: 414px) {
+        .container {
+          padding: 20px;
+        }
+
+        .login-container {
+          padding: 20px;
+        }
+
+        .logo {
+          font-size: 36px;
+        }
+
+        .login-input,
+        .login-button {
+          padding: 12px;
+        }
+
+        .container-main {
+          padding: 10px;
+        }
+
+        .photo-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 10px;
+        }
+      }
+
+      /* Responsiveness for laptops */
+      @media only screen and (min-width: 1024px) {
+        .container {
+          padding: 60px;
+        }
+
+        .login-container {
+          padding: 60px;
+        }
+
+        .logo {
+          font-size: 60px;
+        }
+
+        .login-input,
+        .login-button {
+          padding: 18px;
+        }
+
+        .container-main {
+          padding: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-container">
+        <h1 class="logo">Nadaflix</h1>
+        <div class="login-form">
+          <input type="text" id="username" class="login-input" placeholder="Namamu" />
+          <input type="password" id="password" class="login-input" placeholder="Passwordnya apa yaa?" />
+          <button onclick="login()" class="login-button">Masuk</button>
+          <p class="login-error" id="login-error"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="header">
+      <h1 class="logo">Nadaflix</h1>
+    </div>
+
+    <div class="container-main">
+      <h2>Selamat Ulang Tahun, Nada!</h2>
+      <p>Ini adalah halaman utama Nadaflix setelah login berhasil.</p>
+      <div class="photo-grid">
+        <div class="photo-placeholder">
+          <img src="images/foto1.jpg" alt="Foto 1" class="photo-img" />
+        </div>
+        <div class="photo-placeholder">
+          <img src="images/foto2.jpg" alt="Foto 2" class="photo-img" />
+        </div>
+        <div class="photo-placeholder">
+          <img src="images/foto3.jpg" alt="Foto 3" class="photo-img" />
+        </div>
+        <div class="photo-placeholder">
+          <img src="images/foto4.jpg" alt="Foto 4" class="photo-img" />
+        </div>
+        <div class="photo-placeholder">
+          <img src="images/foto5.jpg" alt="Foto 1" class="photo-img" />
+        </div>
+        <div class="photo-placeholder">
+          <img src="images/foto6.jpg" alt="Foto 1" class="photo-img" />
+        </div>
+        <div class="photo-placeholder">
+          <img src="images/foto7.jpg" alt="Foto 1" class="photo-img" />
+        </div>
+        <div class="photo-placeholder">
+          <img src="images/foto8.jpg" alt="Foto 1" class="photo-img" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        var containerMain = document.querySelector('.container-main');
+        containerMain.style.display = 'none';
+      });
+
+      function login() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var loginError = document.getElementById('login-error');
+        var containerMain = document.querySelector('.container-main');
+
+        if (username === 'nada' && password === 'sayangcece') {
+          // Redirect to the next page or perform any other action
+          alert('Login berhasil!');
+          document.getElementsByClassName('login-container')[0].style.display = 'none';
+          containerMain.style.display = 'block';
+        } else {
+          loginError.innerHTML = 'Email atau kata sandi salah!';
+          containerMain.style.display = 'none';
+        }
+      }
+    </script>
+  </body>
+</html>
