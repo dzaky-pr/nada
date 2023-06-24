@@ -231,7 +231,7 @@
         </div>
       </div>
       <div class="qr-code">
-        <h3>QR Code</h3>
+        <h3>Apanih</h3>
         <img src="images/qr.png" alt="QR Code" class="qr-code-img" />
       </div>
     </div>
@@ -253,6 +253,9 @@
           alert('Login berhasil!');
           document.getElementsByClassName('login-container')[0].style.display = 'none';
           containerMain.style.display = 'block';
+          // Memutar audio saat login berhasil
+          var audio = new Audio('audio/edoloneliness.m4a');
+          audio.play();
         } else {
           loginError.innerHTML = 'Email atau kata sandi salah!';
           containerMain.style.display = 'none';
